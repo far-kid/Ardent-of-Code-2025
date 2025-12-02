@@ -13,7 +13,7 @@ def get_result(com :str)->int:
 
 def main():
     commands = []
-    with open("z:/input.txt") as f:
+    with open("F:\Ardent-of-Code-2025\Day1\input.txt") as f:
         for line in f:
             clean= line.rstrip('\n')
             commands.append(clean)
