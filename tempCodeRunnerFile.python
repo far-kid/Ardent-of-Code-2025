@@ -1,0 +1,9 @@
+def hello(something):
+    def hello2():
+        print(something)
+    something +=something
+    hello2()
+    
+hello("Kar")
+
+print(12//100)

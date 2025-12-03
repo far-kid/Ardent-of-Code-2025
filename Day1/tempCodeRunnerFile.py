@@ -1,0 +1,1 @@
+"F:\Ardent-of-Code-2025\Day1\input.txt"
