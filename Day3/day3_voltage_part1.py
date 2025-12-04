@@ -10,6 +10,19 @@ def findmax_brut(number)->int:
     print(maxsum)
     return maxsum
 
+def findmax(number)->int:
+    m1, m2= 0,0
+    for i in range(len(number)):
+        val = int(i)
+        if val>m1 and i<len(number)-1:
+            m1 = val
+            m2 = 0
+            continue
+        if val>m2:
+            m2 = val
+    result = 10*m1 + m2
+    return result
+
 
 def main():
     powerbanks =[]
@@ -18,7 +31,7 @@ def main():
     
     max_sum = 0
     for i in range(len(powerbanks)):
-        max_sum += findmax_brut(powerbanks[i])
+        max_sum += findmax(powerbanks[i])
     
     print(max_sum)
         
