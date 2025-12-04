@@ -24,6 +24,7 @@ def main():
     with open(r"F:\Ardent-of-Code-2025\Day4\input.txt") as f:
         paper_rolls = f.read().splitlines()
     
+    paper_rolls = [list(line) for line in paper_rolls]
     global row_count
     global col_count
 
@@ -35,26 +36,28 @@ def main():
     #         get_8_values(row,col_index)
     
     paper_count  = 0
-    
-    for row in range(row_count):
-        for col_index in range(col_count):
-            
-            if paper_rolls[row][col_index]!='@':
-                continue
-            
-            else:
-                values = get_8_values(row,col_index)
-                adj_count = 0
-                for value in values:
-                    r, c = value[0], value[1]
-                    if r < 0 or c < 0 or r >= row_count or c >= col_count:
-                        continue
-                    else:
-                        if paper_rolls[r][c] == '@':
-                            adj_count += 1
-                if adj_count<4:
-                    print(row, col_index)
-                    paper_count+=1
+    paper_count_old = -1
+    for _ in range(100):
+        for row in range(row_count):
+            for col_index in range(col_count):
+                
+                if paper_rolls[row][col_index]!='@':
+                    continue
+                
+                else:
+                    values = get_8_values(row,col_index)
+                    adj_count = 0
+                    for value in values:
+                        r, c = value[0], value[1]
+                        if r < 0 or c < 0 or r >= row_count or c >= col_count:
+                            continue
+                        else:
+                            if paper_rolls[r][c] == '@':
+                                adj_count += 1
+                    if adj_count<4:
+                       # print(row, col_index)
+                        paper_count+=1
+                        paper_rolls[row][col_index]='.'
         
     print(paper_count)
 
