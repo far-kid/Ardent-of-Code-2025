@@ -37,7 +37,8 @@ def main():
     
     paper_count  = 0
     paper_count_old = -1
-    for _ in range(100):
+    while(True):
+        paper_count_old = paper_count
         for row in range(row_count):
             for col_index in range(col_count):
                 
@@ -58,6 +59,8 @@ def main():
                        # print(row, col_index)
                         paper_count+=1
                         paper_rolls[row][col_index]='.'
+        if paper_count==paper_count_old:
+            break                
         
     print(paper_count)
 
