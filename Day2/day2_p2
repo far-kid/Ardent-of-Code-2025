@@ -1,0 +1,14 @@
+import re
+import sys
+
+P1 = re.compile(r"^(\d+)\1$")
+P2 = re.compile(r"^(\d+)\1+$")
+
+ans1 = ans2 = 0
+for i in [i.strip() for i in sys.stdin.readlines()][0].split(","):
+    x, y = i.split("-")
+    for j in range(int(x), int(y) + 1):
+        if P1.findall(str(j)): ans1 += j
+        if P2.findall(str(j)): ans2 += j
+
+print(ans1, ans2)
